@@ -16,5 +16,20 @@ bot.help((ctx) => {
     ctx.reply(helpMsg);
 });
 
+bot.command("echo", (ctx) =>{
+    let input = ctx.message.text;
+    let inputArray = input.split(" ");
+    // console.log(inputArray);
+    let message = " "
+
+    if (inputArray.length == 1) {
+        message = "You said echo"
+    } else {
+        inputArray.shift()
+        message = inputArray.join(" ")
+    }
+
+    ctx.reply(message)
+})
 
 bot.launch();
